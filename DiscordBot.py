@@ -11,7 +11,7 @@ from secret import discord_bot_token
 
 class DiscordBot(commands.Bot):
     def __init__(self, command_prefix, intents, ready_event, generation_event, closing_event):
-        self.client = super().__init__(command_prefix=command_prefix, intents=intents)
+        super().__init__(command_prefix=command_prefix, intents=intents)
         self.directory = os.getcwd()
         self.ready_event = ready_event
         self.generation_event = generation_event
@@ -69,7 +69,7 @@ class DiscordBot(commands.Bot):
             self.generation_event.set()
 
     async def on_ready(self):
-        print("Bot connected")
+        print("Discord- Bot connected")
         self.ready_event.set()
 
     async def on_message(self, message):
